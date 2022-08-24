@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='css/signUp.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css"
+    />
+  </head>
+  <body>
+    <div class="centered">
+      <h1>Register Now</h1>
+      <form method="post">
+        {{form.hidden_tag()}} {{form.username}}
+        <br />
+        {{form.password}}
+        <br />
+        {{form.confirmPassword}}
+        <br />
+        {{form.register()}}
+      </form>
+      <p>Already have an account? <a href="./">Sign In!</a></p>
+    </div>
+  </body>
+</html>

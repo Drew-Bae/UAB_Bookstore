@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>University Bookstore</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='css/main.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav collapsible">
+        <h1 class="space nav__brand">University Bookstore</h1>
+        <ul class="list nav__list collapsible__content">
+          <li class="nav__item">
+            <a href="./cart.html">{{test}}'s Cart</a>
+          </li>
+          <li class="nav__item">
+            <a href="/">Log Out</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <h2 class="contain-header">History</h2>
+    <table class="contain">
+      <thead>
+        <th>Title</th>
+      </thead>
+      <tbody>
+        {% for title in history %}
+        <tr>
+          <td class="center">{{title}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <h2 class="contain-header">Horror</h2>
+    <table class="contain">
+      <thead>
+        <th>Title</th>
+      </thead>
+      <tbody>
+        {% for title in horror %}
+        <tr>
+          <td class="center">{{title}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <section class="center">
+      <h3><u>Add a Book to Your Cart</u></h3>
+      <form class="width" method="post">
+        {{form.hidden_tag()}}
+        <br />
+        {{form.title}}
+        <br />
+        {{form.addCart()}}
+      </form>
+    </section>
+  </body>
+</html>

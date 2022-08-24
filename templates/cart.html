@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='css/cart.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav collapsible">
+        <h1 class="space nav__brand">Cart</h1>
+        <ul class="list nav__list collapsible__content">
+          <li class="nav__item">
+            <a href="./main.html">Back to Bookstore</a>
+          </li>
+          <li class="nav__item">
+            <a href="/">Log Out</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <table class="contain">
+      <thead>
+        <th>Title</th>
+      </thead>
+      <tbody>
+        {% for title in title %}
+        <tr>
+          <td class="center">{{title}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+      <thead>
+        <th>Total Cost</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="center">${{add1}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <form class="middle" method="post">
+      <input type="submit" value="Buy" name="buy" />
+    </form>
+  </body>
+</html>
